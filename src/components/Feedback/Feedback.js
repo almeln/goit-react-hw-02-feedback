@@ -88,7 +88,7 @@ class Feedback extends React.Component {
         {/* <Buttons
         onButtonClick={this.handleClick}
         /> */}
-        <button type="button" onClick={this.handleGoodClick}>
+        {/* <button type="button" onClick={this.handleGoodClick}>
           Good
         </button>
         <button type="button" onClick={this.handleNeutralClick}>
@@ -96,7 +96,18 @@ class Feedback extends React.Component {
         </button>
         <button type="button" onClick={this.handleBadClick}>
           Bad
-        </button>
+        </button> */}
+        <div>
+          <button type="button" onClick={this.handleGoodClick}>
+            Good
+          </button>
+          <button type="button" onClick={this.handleNeutralClick}>
+            Neutral
+          </button>
+          <button type="button" onClick={this.handleBadClick}>
+            Bad
+          </button>
+        </div>
         <h2>Statistics</h2>
         <p>Good: {this.state.good}</p>
         <p>Neutral: {this.state.neutral}</p>
