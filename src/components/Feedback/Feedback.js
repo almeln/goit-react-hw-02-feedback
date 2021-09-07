@@ -1,24 +1,66 @@
+// import Buttons from 'components/Buttons/Buttons';
 import React from 'react';
 
 class Feedback extends React.Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  // начальное состояние от Пропс
+  static defaultProps = {
+    initialValue: 0,
   };
 
-  handleClick = event => {
-    console.log(this);
-    console.log('Click');
+  state = {
+    good: this.props.initialValue,
+    neutral: this.props.initialValue,
+    bad: this.props.initialValue,
+  };
 
-    const { target } = event;
+  // handleClick = event => {
+  //   console.log(this);
+  //   console.log('Click');
 
-    setTimeout(() => {
-      console.log(target);
-    }, 1000);
+  //   const { target } = event;
 
-    this.setState({
-      good: 5,
+  //   setTimeout(() => {
+  //     console.log(target);
+  //   }, 1000);
+
+  //   // Перезаписывает состояние
+
+  //   // this.setState({
+  //   //   good: 5,
+  //   // });
+
+  //   // Обновляет состояние
+  //   this.setState((prevState) => {
+  //     return {
+  //       good: prevState.good + 1,
+  //     };
+  //   });
+  // };
+
+  handleGoodClick = e => {
+    console.log(e);
+    this.setState(prevState => {
+      return {
+        good: prevState.good + 1,
+      };
+    });
+  };
+
+  handleNeutralClick = e => {
+    console.log(e);
+    this.setState(prevState => {
+      return {
+        neutral: prevState.neutral + 1,
+      };
+    });
+  };
+
+  handleBadClick = e => {
+    console.log(e);
+    this.setState(prevState => {
+      return {
+        bad: prevState.bad + 1,
+      };
     });
   };
 
@@ -26,11 +68,18 @@ class Feedback extends React.Component {
     return (
       <div>
         <h1>Please leave feedback</h1>
-        <button type="button" onClick={this.handleClick}>
+        {/* <Buttons
+        onButtonClick={this.handleClick}
+        /> */}
+        <button type="button" onClick={this.handleGoodClick}>
           Good
         </button>
-        <button type="button">Neutral</button>
-        <button type="button">Bad</button>
+        <button type="button" onClick={this.handleNeutralClick}>
+          Neutral
+        </button>
+        <button type="button" onClick={this.handleBadClick}>
+          Bad
+        </button>
         <h2>Statistics</h2>
         <p>Good:{this.state.good}</p>
         <p>Neutral:{this.state.neutral}</p>
