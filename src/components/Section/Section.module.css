@@ -1,0 +1,10 @@
+.section {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.title {
+  color: #3c1551db;
+}
